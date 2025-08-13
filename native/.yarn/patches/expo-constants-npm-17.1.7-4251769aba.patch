@@ -1,0 +1,15 @@
+diff --git a/scripts/get-app-config-ios.sh b/scripts/get-app-config-ios.sh
+index b612e095ea509f92dac967540f50353507a8ff51..34ccecd186563cb0460002441631c2ca62a96633 100755
+--- a/scripts/get-app-config-ios.sh
++++ b/scripts/get-app-config-ios.sh
+@@ -17,8 +17,8 @@ if [ "x$PROJECT_DIR_BASENAME" != "xPods" ]; then
+ fi
+ 
+ # If PROJECT_ROOT is not specified, fallback to use Xcode PROJECT_DIR
+-PROJECT_ROOT=${PROJECT_ROOT:-"$PROJECT_DIR/../.."}
+-PROJECT_ROOT=${PROJECT_ROOT:-"$EXPO_CONSTANTS_PACKAGE_DIR/../.."}
++PROJECT_ROOT=${PROJECT_ROOT:-"$PROJECT_DIR/.."}
++PROJECT_ROOT=${PROJECT_ROOT:-"$EXPO_CONSTANTS_PACKAGE_DIR/.."}
+ 
+ cd "$PROJECT_ROOT" || exit
+ 

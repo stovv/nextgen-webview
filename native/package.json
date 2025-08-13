@@ -1,0 +1,39 @@
+{
+  "name": "native",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "lint": "eslint .",
+    "start": "react-native start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~5.0.4",
+    "@react-navigation/native": "^7.1.17",
+    "@react-navigation/native-stack": "^7.3.25",
+    "@react-navigation/stack": "^7.4.7",
+    "expo": "~53.0.20",
+    "expo-image-picker": "^16.1.4",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.5",
+    "react-native-gesture-handler": "2.24.0",
+    "react-native-reanimated": "3.17.4",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "4.11.1",
+    "react-native-svg": "15.11.2",
+    "react-native-web": "^0.20.0"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "^13.6.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "resolutions": {
+    "expo-constants@npm:~17.1.7": "patch:expo-constants@npm%3A17.1.7#~/.yarn/patches/expo-constants-npm-17.1.7-4251769aba.patch"
+  }
+}
