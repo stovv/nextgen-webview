@@ -49,17 +49,20 @@ class ReactViewController: UIViewController {
         self.reactNativeFactoryDelegate = delegate
         self.reactNativeFactory = factory
 
-        /**
-         
-         let userInfo: [String: Any] = [
-             "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0N",
-             "name": "Инокентий",
-             "lastName": "Филатов"
-         ];
 
-         */
-        // Создаём RootView через фабрику (совместимо с Fabric / новой архитектурой)
-        let rootView = factory.rootViewFactory.view(withModuleName: "main", initialProperties: nil)
+        let userInfo: [String: Any] = [
+            "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0N",
+            "name": "Инокентий",
+            "lastName": "Филатов"
+        ];
+        let rootView = factory.rootViewFactory.view(withModuleName: "main", initialProperties: userInfo)
         self.view = rootView
     }
 }
+
+
+/**
+ 
+
+
+ */

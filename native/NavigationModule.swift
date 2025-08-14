@@ -36,21 +36,14 @@ class NavigationModule: NSObject {
   @objc
   func close(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
-            print("Close! Начинаем процесс закрытия...")
-            
             // Находим текущий UIViewController
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                 if let window = windowScene.windows.first {
                     if let rootViewController = window.rootViewController {
-                        print("✅ Найден root view controller: \(type(of: rootViewController))")
-                        
                         // Сначала проверяем, есть ли presented view controller (для .sheet)
                         if let presentedVC = rootViewController.presentedViewController {
-                            print("🎯 Найден presented view controller (sheet): \(type(of: presentedVC))")
-                            
                             // Если это sheet, закрываем его
                             presentedVC.dismiss(animated: true) {
-                                print("✅ Sheet закрыт")
                                 resolve(true)
                             }
                             return
@@ -59,31 +52,23 @@ class NavigationModule: NSObject {
                         // Если нет presented, ищем UINavigationController (для NavigationLink)
                         if rootViewController is UIHostingController<AnyView> || 
                            String(describing: type(of: rootViewController)).contains("UIHostingController") {
-                            print("🎯 Это UIHostingController, ищем навигацию...")
-                            
                             // Ищем UINavigationController среди дочерних view controllers
                             if let navigationController = self.findNavigationController(in: rootViewController) {
-                                print("✅ Найден UINavigationController, возвращаемся назад")
                                 navigationController.popViewController(animated: true)
                                 resolve(true)
                             } else {
-                                print("❌ UINavigationController не найден")
                                 reject("ERROR", "UINavigationController не найден", nil)
                             }
                         } else {
-                            print("❌ Это НЕ UIHostingController")
                             reject("ERROR", "Неподдерживаемый тип root view controller", nil)
                         }
                     } else {
-                        print("❌ Не найден root view controller")
                         reject("ERROR", "Не найден root view controller", nil)
                     }
                 } else {
-                    print("❌ Не найдено окно")
                     reject("ERROR", "Не найдено окно", nil)
                 }
             } else {
-                print("❌ Не найдена windowScene")
                 reject("ERROR", "Не найдена windowScene", nil)
             }
         }
