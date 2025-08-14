@@ -4,4 +4,4 @@ export interface Spec extends TurboModule {
   close(): Promise<boolean>;
 }
 
-export default TurboModuleRegistry.getEnforcing<Spec>('NavigationModule'); 
+export default TurboModuleRegistry.getEnforcing<Spec>('NavigationModule');

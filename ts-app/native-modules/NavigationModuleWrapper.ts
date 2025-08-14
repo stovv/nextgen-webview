@@ -15,4 +15,4 @@ export class NavigationService {
   }
 }
 
-export default NavigationService; 
+export default NavigationService;
